@@ -6,7 +6,7 @@ import "./Row.css";
 
 const base_url = "https://image.tmdb.org/t/p/original";
 
-const Row = ({ title, fetchUrl }) => {
+const Row = ({ title, fetchUrl, isLargeRow }) => {
   const [movies, setMovies] = useState([]);
 
   // Rows 컴포넌트가 rendering 될 때 해당 내용이 출력됨
@@ -31,8 +31,10 @@ const Row = ({ title, fetchUrl }) => {
         {movies.map((movie) => (
           <img
             key={movie.id}
-            className="row__poster"
-            src={`${base_url}${movie.poster_path}`}
+            className={`row__poster ${isLargeRow && "row__posterLarge"}`}
+            src={`${base_url}${
+              isLargeRow ? movie.poster_path : movie.backdrop_path
+            }`}
             alt={`${base_url}${movie.name}`}
           />
         ))}
