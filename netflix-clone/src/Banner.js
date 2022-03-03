@@ -5,21 +5,21 @@ import requests from "./requests";
 import "./Banner.css";
 
 const Banner = () => {
-  const [movie] = useState([]);
+  const [movie, setMovie] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(requests.fetchNetflixOriginals);
-      console.log(
+      setMovie(
         request.data.results[
           Math.floor(Math.random() * request.data.results.length)
         ]
       );
-      return request;
+      console.log(request.data);
+      return request.data;
     }
     fetchData();
   }, []);
-  console.log(movie);
 
   function truncate(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
@@ -46,6 +46,8 @@ const Banner = () => {
         </div>
         <h1 className="banner_description">{truncate(movie?.overview, 150)}</h1>
       </div>
+
+      <div className="banner__fadeBottom"></div>
     </header>
   );
 };
