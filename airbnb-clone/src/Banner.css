@@ -1,0 +1,41 @@
+.banner {
+  height: 50vh;
+  position: relative;
+  background: url("https://a.cdn-hotels.com/gdcs/production110/d1295/985557b1-8062-4894-9a32-0d2bc8ae0e7b.jpg")
+    center center;
+}
+
+.banner__info {
+  background-color: black;
+  color: white;
+  padding: 25vh 50px 40px 50px;
+  width: 300px;
+}
+
+.banner__search {
+  display: flex;
+  flex-direction: column;
+}
+
+.banner__searchButton {
+  background-color: white !important;
+  font-weight: 900 !important;
+  text-decoration: inherit !important;
+  color: #ff7779 !important;
+}
+
+.banner__info > button {
+  background-color: #ff7779;
+  color: white;
+  text-transform: inherit;
+  font-weight: 600;
+}
+
+.banner__info > button:hover {
+  background-color: aliceblue;
+  color: black;
+}
+
+.banner__info > h5 {
+  margin-top: 10px;
+}
