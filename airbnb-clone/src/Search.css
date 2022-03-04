@@ -3,6 +3,8 @@
   top: 35px;
   left: 25%;
   width: 100vw;
+  z-index: 10;
+  opacity: 0.9;
 }
 
 .search > h2 {
@@ -14,7 +16,8 @@
   background-color: white;
   position: absolute;
   left: 0;
-  top: 380px;
+  top: 350px;
+  border-top: 1px solid #ff7779;
 }
 
 .search > input {
@@ -23,8 +26,9 @@
   position: absolute;
   left: 0;
   height: 30px;
-  top: 420px;
+  top: 390px;
   border: none;
+  font-size: 20px;
 }
 
 .search > input:focus {
@@ -32,16 +36,20 @@
 }
 
 .search > button {
+  height: 50px;
   position: absolute;
   left: 0;
-  top: 480px;
+  top: 450px;
   text-transform: inherit !important;
   background-color: #ff7779;
   color: white;
   width: 579px;
+  font-size: 18px;
 }
 
 .search > button:hover {
+  border: 1px solid #ff7779;
   background-color: white;
   color: #ff7779;
+  font-weight: bold;
 }
