@@ -8,7 +8,7 @@
 .banner__info {
   background-color: black;
   color: white;
-  padding: 25vh 50px 40px 50px;
+  padding: 21.5vh 50px 40px 50px;
   width: 300px;
 }
 
@@ -25,6 +25,7 @@
 }
 
 .banner__info > button {
+  margin-top: 10px;
   background-color: #ff7779;
   color: white;
   text-transform: inherit;
