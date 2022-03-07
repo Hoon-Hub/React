@@ -10,6 +10,7 @@
   font-size: 20px;
   color: white;
   transition: 0.1s;
+  margin-right: 15px;
 }
 
 .header__link:hover {

@@ -5,7 +5,10 @@ export default function Header() {
   return (
     <div className="header">
       <Link className="header__link" to="/">
-        Main
+        Event
+      </Link>
+      <Link className="header__link" to="/event2">
+        Event2
       </Link>
     </div>
   );
