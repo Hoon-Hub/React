@@ -41,6 +41,10 @@ export default function Event2() {
           check
         </button>
       </div>
+      <div>
+        <p>사용자이름: {username}</p>
+        <p>전송한 메시지: {message}</p>
+      </div>
     </div>
   );
 }
