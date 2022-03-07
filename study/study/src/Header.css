@@ -1,0 +1,18 @@
+.header {
+  width: 100%;
+  background-color: rgb(34, 34, 34);
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.header__link {
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  transition: 0.1s;
+}
+
+.header__link:hover {
+  transition: 0.1s;
+  border-bottom: 3px solid white;
+}
