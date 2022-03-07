@@ -10,6 +10,9 @@ export default function Header() {
       <Link className="header__link" to="/event2">
         Event2
       </Link>
+      <Link className="header__link" to="/event3">
+        Event3
+      </Link>
     </div>
   );
 }
