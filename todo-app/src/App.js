@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useReducer, useRef, useState } from 'react';
 import TodoInsert from './components/TodoInsert.js';
 import TodoList from './components/TodoList.js';
 import TodoTemplate from './components/TodoTemplate.js';
@@ -15,8 +15,26 @@ function createBulkTodos() {
   return array;
 }
 
+// Reducer 를 사용하여 기능 향상
+function todoReducer(todos, action) {
+  switch (action.type) {
+    case 'INSERT':
+      return todos.concat(action.todo);
+    case 'REMOVE':
+      return todos.filter((todo) => todo.id !== action.id);
+    case 'TOGGLE':
+      return todos.map((todo) => {
+        return todo.id === action.id
+          ? { ...todo, checked: !todo.checked }
+          : todo;
+      });
+    default:
+      return todos;
+  }
+}
+
 const App = () => {
-  const [todos, setTodos] = useState(createBulkTodos);
+  const [todos, dispatch] = useReducer(todoReducer, undefined, createBulkTodos);
   const nextId = useRef(2501);
 
   const onInsert = useCallback((text) => {
@@ -25,31 +43,18 @@ const App = () => {
       text,
       checked: false,
     };
-    // 함수형 업데이트 : 상태 업데이트를 어떻게 할지 정의해줌
-    setTodos((todos) => todos.concat(todo)); // todos => 를 사용함으로써
+
+    dispatch({ type: 'INSERT', todo });
     nextId.current += 1;
-  }, []); // 두번째 매개변수'[todos]'를 생략할 수 있다.
+  }, []);
 
-  const onRemove = useCallback(
-    (id) => {
-      setTodos((todos) => todos.filter((todo) => todo.id !== id)); //함수형 업데이트로 변환
-    },
-    [], // 매개변수 생략
-  );
+  const onRemove = useCallback((id) => {
+    dispatch({ type: 'REMOVE', id });
+  }, []);
 
-  const onToggle = useCallback(
-    (id) => {
-      setTodos(
-        (
-          todos, // 여기도 함수형 업데이트
-        ) =>
-          todos.map((todo) =>
-            todo.id === id ? { ...todo, checked: !todo.checked } : todo,
-          ),
-      );
-    },
-    [], // 매개변수 생략
-  );
+  const onToggle = useCallback((id) => {
+    dispatch({ type: 'TOGGLE', id });
+  }, []);
 
   return (
     <TodoTemplate>
