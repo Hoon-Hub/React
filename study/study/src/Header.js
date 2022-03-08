@@ -17,6 +17,9 @@ export default function Header() {
       <Link className="header__link" to="/ref1">
         Ref
       </Link>
+      <Link className="header__link" to="/ref2">
+        Ref2
+      </Link>
     </div>
   );
 }

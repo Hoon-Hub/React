@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./Ref1.css";
+import Header from "../Header.js";
 export default class componentName extends Component {
   state = {
     password: "",
@@ -32,12 +33,15 @@ export default class componentName extends Component {
   render() {
     return (
       <div>
+        <Header />
         <h2>Focus를 ref를 이용하여 사용하기</h2>
         <input
           type="password"
           value={this.state.password}
           onChange={this.handleChange}
-          ref={this.focusInput}
+          ref={(ref) => {
+            this.focusInput = ref;
+          }}
           className={
             this.state.clicked
               ? this.state.validated

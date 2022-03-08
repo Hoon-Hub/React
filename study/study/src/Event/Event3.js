@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Header from "./Header";
+import Header from "../Header";
 export default function Event3() {
   const [form, setForm] = useState({
     username: "",
