@@ -3,26 +3,22 @@ import TodoInsert from './components/TodoInsert.js';
 import TodoList from './components/TodoList.js';
 import TodoTemplate from './components/TodoTemplate.js';
 
-const App = () => {
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      text: '리액트의 기초 알아보기',
-      checked: true,
-    },
-    {
-      id: 2,
-      text: 'Component Styling',
-      checked: true,
-    },
-    {
-      id: 3,
-      text: 'Make Todo Application by React.js',
+function createBulkTodos() {
+  const array = [];
+  for (let i = 1; i <= 2500; i++) {
+    array.push({
+      id: i,
+      text: `할 일 ${i}`,
       checked: false,
-    },
-  ]);
+    });
+  }
+  return array;
+}
 
-  const nextId = useRef(4);
+const App = () => {
+  const [todos, setTodos] = useState(createBulkTodos);
+  const nextId = useRef(2501);
+
   const onInsert = useCallback(
     (text) => {
       const todo = {
@@ -62,4 +58,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default React.memo(App);
