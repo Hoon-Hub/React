@@ -9,6 +9,7 @@ function reducer(state, action) {
 
 function useInputs(initialForm) {
   const [state, dispatch] = useReducer(reducer, initialForm);
+
   const onChange = (e) => {
     dispatch(e.target);
   };
