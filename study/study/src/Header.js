@@ -30,6 +30,12 @@ export default function Header() {
       <Link className="header__link" to="/memo">
         Memo
       </Link>
+      <Link className="header__link" to="/refs">
+        Refs
+      </Link>
+      <Link className="header__link" to="/CustomHooks">
+        CustomHooks
+      </Link>
     </div>
   );
 }

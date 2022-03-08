@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useMemo, useRef, useState } from "react";
 import Header from "../Header";
 
 const getAverage = (numbers) => {
@@ -8,9 +8,10 @@ const getAverage = (numbers) => {
   return sum / numbers.length;
 };
 
-const UseMemo = () => {
+const UseRefs = () => {
   const [list, setList] = useState([]);
   const [number, setNumber] = useState("");
+  const inputEl = useRef(null);
 
   const onChange = useCallback((e) => {
     setNumber(e.target.value);
@@ -20,6 +21,7 @@ const UseMemo = () => {
     const nextList = list.concat(parseInt(number));
     setList(nextList);
     setNumber("");
+    inputEl.current.focus();
   }, [number, list]);
 
   const avg = useMemo(() => getAverage(list), [list]);
@@ -27,10 +29,9 @@ const UseMemo = () => {
   return (
     <div>
       <Header></Header>
-      <h1>Use Memo - 연산에서 사용</h1>
-      <h2>+ useCallback</h2>
+      <h1>Use Refs - DOM의 ID</h1>
       <div>
-        <input type="text" value={number} onChange={onChange} />
+        <input type="text" value={number} onChange={onChange} ref={inputEl} />
         <button onClick={onInsert}>등록</button>
         <ul>
           {list.map((value, index) => (
@@ -49,4 +50,4 @@ const UseMemo = () => {
   );
 };
 
-export default UseMemo;
+export default UseRefs;

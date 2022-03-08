@@ -35,3 +35,7 @@ button:hover {
   color: tomato;
   cursor: pointer;
 }
+
+ul {
+  list-style: none;
+}

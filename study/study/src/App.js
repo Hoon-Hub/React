@@ -8,6 +8,8 @@ import Ref2 from "./Ref/Ref2.js";
 import HooksUseReducer from "./Hooks/HooksUseReducer.js";
 import HooksUseReducer2 from "./Hooks/HooksUseReducer2.js";
 import UseMemo from "./Hooks/UseMemo";
+import UseRefs from "./Hooks/UseRefs";
+import CustomHooks from "./Hooks/CustomHooks";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
           <Route path="/reducer" element={<HooksUseReducer />} />
           <Route path="/reducer2" element={<HooksUseReducer2 />} />
           <Route path="/memo" element={<UseMemo />} />
+          <Route path="/refs" element={<UseRefs />} />
+          <Route path="/CustomHooks" element={<CustomHooks />} />
         </Routes>
       </Router>
     </div>
