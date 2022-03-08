@@ -1,4 +1,4 @@
-import React, { useCallback, useReducer, useRef, useState } from 'react';
+import React, { useCallback, useReducer, useRef } from 'react';
 import TodoInsert from './components/TodoInsert.js';
 import TodoList from './components/TodoList.js';
 import TodoTemplate from './components/TodoTemplate.js';
@@ -64,4 +64,4 @@ const App = () => {
   );
 };
 
-export default React.memo(App);
+export default App;
