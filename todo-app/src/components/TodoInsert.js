@@ -23,7 +23,7 @@ const TodoInsert = ({ onInsert }) => {
   );
 
   return (
-    <form className="TodoInsert" action="">
+    <form className="TodoInsert" action="#">
       <input
         placeholder="Todo..."
         value={value}
