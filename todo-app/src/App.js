@@ -19,35 +19,36 @@ const App = () => {
   const [todos, setTodos] = useState(createBulkTodos);
   const nextId = useRef(2501);
 
-  const onInsert = useCallback(
-    (text) => {
-      const todo = {
-        id: nextId.current,
-        text,
-        checked: false,
-      };
-      setTodos(todos.concat(todo));
-      nextId.current += 1;
-    },
-    [todos],
-  );
+  const onInsert = useCallback((text) => {
+    const todo = {
+      id: nextId.current,
+      text,
+      checked: false,
+    };
+    // 함수형 업데이트 : 상태 업데이트를 어떻게 할지 정의해줌
+    setTodos((todos) => todos.concat(todo)); // todos => 를 사용함으로써
+    nextId.current += 1;
+  }, []); // 두번째 매개변수'[todos]'를 생략할 수 있다.
 
   const onRemove = useCallback(
     (id) => {
-      setTodos(todos.filter((todo) => todo.id !== id));
+      setTodos((todos) => todos.filter((todo) => todo.id !== id)); //함수형 업데이트로 변환
     },
-    [todos],
+    [], // 매개변수 생략
   );
 
   const onToggle = useCallback(
     (id) => {
       setTodos(
-        todos.map((todo) =>
-          todo.id === id ? { ...todo, checked: !todo.checked } : todo,
-        ),
+        (
+          todos, // 여기도 함수형 업데이트
+        ) =>
+          todos.map((todo) =>
+            todo.id === id ? { ...todo, checked: !todo.checked } : todo,
+          ),
       );
     },
-    [todos],
+    [], // 매개변수 생략
   );
 
   return (
