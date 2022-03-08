@@ -2,3 +2,36 @@ body {
   text-align: center;
   margin: auto;
 }
+
+h1 {
+  margin-bottom: 20px;
+}
+
+input {
+  height: 45px;
+  font-size: 35px;
+  vertical-align: middle;
+}
+
+button {
+  width: 200px;
+  height: 50px;
+  margin: 10px;
+  vertical-align: middle;
+  background-color: tomato;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  transition: 0.2s;
+}
+
+button:hover {
+  border: 1px solid tomato;
+  transition: 0.2s;
+  background-color: white;
+  color: tomato;
+  cursor: pointer;
+}

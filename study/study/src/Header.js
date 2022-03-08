@@ -20,6 +20,16 @@ export default function Header() {
       <Link className="header__link" to="/ref2">
         Ref2
       </Link>
+      <p className="linkdivider">|</p>
+      <Link className="header__link" to="/reducer">
+        Reducer
+      </Link>
+      <Link className="header__link" to="/reducer2">
+        Reducer2
+      </Link>
+      <Link className="header__link" to="/memo">
+        Memo
+      </Link>
     </div>
   );
 }
