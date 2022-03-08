@@ -11,26 +11,26 @@ const TodoInsert = ({ onInsert }) => {
 
   const onSubmit = useCallback(
     (e) => {
+      e.preventDefault();
       if (value === '') {
         return;
       } else {
         onInsert(value);
         setValue('');
-        e.preventDefault();
       }
     },
     [onInsert, value],
   );
 
   return (
-    <form className="TodoInsert" onSubmit={onSubmit}>
+    <form className="TodoInsert" action="">
       <input
         placeholder="Todo..."
         value={value}
         onChange={onChange}
         autoFocus
       />
-      <button type="button">
+      <button type="button" onClick={onSubmit}>
         <MdAdd />
       </button>
     </form>
