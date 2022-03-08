@@ -1,11 +1,8 @@
-import './App.css';
+import React from 'react';
+import TodoTemplate from './components/TodoTemplate.js';
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Gonna make todo app</h1>
-    </div>
-  );
-}
+const App = () => {
+  return <TodoTemplate>Todo App</TodoTemplate>;
+};
 
 export default App;
