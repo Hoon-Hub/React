@@ -13,6 +13,10 @@ export default function Header() {
       <Link className="header__link" to="/event3">
         Event3
       </Link>
+      <p className="linkdivider">|</p>
+      <Link className="header__link" to="/ref1">
+        Ref
+      </Link>
     </div>
   );
 }

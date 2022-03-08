@@ -17,3 +17,8 @@
   transition: 0.1s;
   border-bottom: 3px solid white;
 }
+
+.linkdivider {
+  color: white;
+  display: inline-block;
+}
