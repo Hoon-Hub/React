@@ -10,26 +10,29 @@ import HooksUseReducer2 from "./Hooks/HooksUseReducer2.js";
 import UseMemo from "./Hooks/UseMemo";
 import UseRefs from "./Hooks/UseRefs";
 import CustomHooks from "./Hooks/CustomHooks";
+import React from "react";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Router>
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/event2" element={<Event2 />} />
-          <Route path="/event3" element={<Event3 />} />
-          <Route path="/ref1" element={<Ref1 />} />
-          <Route path="/ref2" element={<Ref2 />} />
-          <Route path="/reducer" element={<HooksUseReducer />} />
-          <Route path="/reducer2" element={<HooksUseReducer2 />} />
-          <Route path="/memo" element={<UseMemo />} />
-          <Route path="/refs" element={<UseRefs />} />
-          <Route path="/CustomHooks" element={<CustomHooks />} />
-        </Routes>
-      </Router>
+    <div>
+      <div className="App">
+        <Router>
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/event2" element={<Event2 />} />
+            <Route path="/event3" element={<Event3 />} />
+            <Route path="/ref1" element={<Ref1 />} />
+            <Route path="/ref2" element={<Ref2 />} />
+            <Route path="/reducer" element={<HooksUseReducer />} />
+            <Route path="/reducer2" element={<HooksUseReducer2 />} />
+            <Route path="/memo" element={<UseMemo />} />
+            <Route path="/refs" element={<UseRefs />} />
+            <Route path="/CustomHooks" element={<CustomHooks />} />
+          </Routes>
+        </Router>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
