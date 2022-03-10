@@ -3,12 +3,14 @@ import styled from "styled-components";
 
 const NewsItemBlock = styled.div`
   display: flex;
+  border-bottom: 1px solid grey;
+  padding-bottom: 10px;
   .thumbnail {
     margin-right: 1rem;
     img {
       display: block;
-      width: 160px;
-      height: 100px;
+      max-width: 160px;
+      min-height: 100px;
       object-fit: cover;
     }
   }
@@ -33,6 +35,7 @@ const NewsItemBlock = styled.div`
 
   & + & {
     margin-top: 3rem;
+    border-bottom: 1px solid grey;
   }
 `;
 
