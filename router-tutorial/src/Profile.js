@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router";
+import WithRouterSample from "./WithRouterSample";
 
 const data = {
   sanghoon: {
@@ -24,6 +25,8 @@ const Profile = () => {
         사용자: {username} ({profile.name})
       </h3>
       <p>설명: {profile.description}</p>
+
+      <WithRouterSample></WithRouterSample>
     </div>
   );
 };
