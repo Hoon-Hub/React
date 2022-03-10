@@ -5,6 +5,7 @@ import "./App.css";
 import Home from "./Home";
 import Profiles from "./Profiles";
 import Navigate from "./Navigate.js";
+
 function App() {
   return (
     <div className="App">
@@ -27,6 +28,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/profiles/*" element={<Profiles />} />
         <Route path="/navigate" element={<Navigate />} />
+        <Route path="*" element={<div>이 페이지는 존재하지 않습니다.</div>} />
       </Routes>
     </div>
   );
