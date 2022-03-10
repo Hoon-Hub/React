@@ -42,20 +42,20 @@ const App = () => {
       });
       nextId.current += 1;
     },
-    [data, form.name, form.username]
+    [form.name, form.username]
   );
 
   // 항목을 삭제하는 함수
-  const onRemove = useCallback(
-    (id) => {
-      setData({
-        produce((draft) => {
-          draft.array.splice(draft.array.findIndex(info => info.id === id), 1)
-        })
-      );
-    },
-    []
-  );
+  const onRemove = useCallback((id) => {
+    setData(
+      produce((draft) => {
+        draft.array.splice(
+          draft.array.findeIndex((info) => info.id === id),
+          1
+        );
+      })
+    );
+  }, []);
 
   return (
     <div>
