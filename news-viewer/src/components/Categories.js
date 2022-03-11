@@ -19,7 +19,7 @@ const categories = [
     text: "건강",
   },
   {
-    name: "sceince",
+    name: "science",
     text: "과학",
   },
   {
