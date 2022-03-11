@@ -21,6 +21,9 @@ const ColorProvider = ({ children }) => {
     <ColorContext.Provider value={value}>{children}</ColorContext.Provider>
   );
 };
-const { Consumer: ColorConsumer } = ColorContext;
+
+// ColorConsumer를 호출하였을 경우, 기본 context를 사용할 수 있다.
+const { Consumer: ColorConsumer } = ColorContext; // 비구조화 할당 : state & setState
+
 export { ColorProvider, ColorConsumer };
 export default ColorContext;
