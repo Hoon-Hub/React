@@ -1,5 +1,5 @@
 import "./App.css";
-import Todos from "./components/Todos";
+import TodosContainer from "./containers/TodosContainer";
 import CounterContainer from "./containers/CounterContainer";
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
     <div>
       <CounterContainer />
       <hr />
-      <Todos></Todos>
+      <TodosContainer />
     </div>
   );
 }
