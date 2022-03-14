@@ -1,10 +1,12 @@
 // import SampleContainer from "./containers/SampleContainer";
-import CounterContainer from "./containers/CounterContainer";
+// import CounterContainer from "./containers/CounterContainer";
+
+import SampleContainer from "./containers/SampleContainer";
 
 function App() {
   return (
     <div className="App">
-      <CounterContainer></CounterContainer>
+      <SampleContainer></SampleContainer>
     </div>
   );
 }
