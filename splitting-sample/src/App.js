@@ -1,21 +1,26 @@
-import React, { Suspense, useState } from "react";
-import logo from "./logo.svg";
-import Split from "./Split";
+import React, { useState } from "react";
+import loadable from "@loadable/component";
+const Split = loadable(() => import("./Split"), {
+  fallback: <div>loading...</div>,
+});
 
 function App() {
   const [visible, setVisible] = useState();
   const onClick = () => {
-    setVisible(true);
+    setVisible(!visible);
+  };
+
+  const onMouseOver = () => {
+    Split.preload();
   };
 
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} alt="logo" className="App-logo" />
-        <p onClick={onClick}>Hello React!</p>
-        <Suspense fallback={<div>Loading...</div>}>
-          {visible && <Split />}
-        </Suspense>
+        <p onClick={onClick} onMouseOver={onMouseOver}>
+          Hello React!
+        </p>
+        {visible && <Split />}
       </header>
     </div>
   );
