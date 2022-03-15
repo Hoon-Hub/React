@@ -1,7 +1,8 @@
 const Router = require("koa-tree-router");
-const api = new Router();
-api.get("/test", (ctx) => {
-  ctx.body = "test 성공";
+const posts = new Router();
+
+posts.get("/posts", (ctx) => {
+  ctx.body = "post test 성공";
 });
 
-module.exports = api;
+module.exports = posts;
