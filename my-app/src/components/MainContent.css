@@ -1,0 +1,11 @@
+.main-area {
+  text-align: center;
+  background-color: aliceblue;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+  max-width: 1200px;
+  min-width: 500px;
+  border: none;
+  border-radius: 35px;
+}
