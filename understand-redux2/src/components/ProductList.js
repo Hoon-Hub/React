@@ -7,11 +7,10 @@ export default function ProductList() {
 
   useEffect(() => {
     fetch("../data/productList.json")
-      .then((res) => {
-        res.json();
-        console.log(res.data);
+      .then((response) => {
+        response.json();
       })
-      .then((res) => setProducts(res.productList));
+      .then((response) => setProducts(response.productList));
   }, []);
 
   const itemList = products.map((item) => {
