@@ -20,16 +20,16 @@ const Contact = () => {
 
           <article className="contact__option">
             <RiMessengerLine />
-            <h4>Email</h4>
+            <h4>Messenger</h4>
             <h5>gwi01304@naver.com</h5>
-            <a href="mailto:gwi01304@naver.com">Send a message</a>
+            <a href="">Send a message</a>
           </article>
 
           <article className="contact__option">
             <BsWhatsapp />
-            <h4>Email</h4>
-            <h5>gwi01304@naver.com</h5>
-            <a href="mailto:gwi01304@naver.com">Send a message</a>
+            <h4>Call</h4>
+            <h5>01012341234</h5>
+            <a href="">Send a message</a>
           </article>
         </div>
         <form action=""></form>
