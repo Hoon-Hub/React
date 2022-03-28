@@ -1,14 +1,12 @@
-import React from 'react'
-import AppLayout from '../_layout/appLayout'
+import React, { useState, useCallback } from 'react'
+import RegisterMain from '../components/register/RegisterMain'
+import Layout from '../_layout/Layout'
 
 const Register = () => {
-
-
-
   return (
-    <AppLayout>
-      <div>sad</div>
-    </AppLayout>
+    <Layout>
+      <RegisterMain />
+    </Layout>
   )
 }
 

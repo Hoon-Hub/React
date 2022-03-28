@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import AppLayout from '../_layout/appLayout'
+import Layout from '../_layout/Layout'
 import { Form, Button } from 'react-bootstrap'
 import styled from 'styled-components'
 import { useDispatch } from 'react-redux'
+import LoginMain from '../components/login/LoginMain'
 
 
 const LoginDiv = styled.div`
@@ -39,27 +40,11 @@ const Login = () => {
 
   }
   return (
-    <AppLayout>
-      <LoginDiv>
-        <Form >
-          <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" autoFocus onChange={onChangeEmail} />
-            <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" onChange={onChangePassword} />
-          </Form.Group>
-          <Button variant="primary" type="button" onClick={submitClickHandler}>
-            로그인
-          </Button>
-        </Form>
-      </LoginDiv>
-    </AppLayout>
+    <>
+      <Layout>
+        <LoginMain></LoginMain>
+      </Layout>
+    </>
   )
 }
 
