@@ -11,10 +11,11 @@ const initialUsers = [
   }
 ]
 
+// 로그인 과정
 function CheckEmailPassword(email, password) {
   const result = initialUsers.find((user) => user.email === email && user.password === password)
   if (result) {
-    return result;
+    return true;
   } else {
     return false;
   }
@@ -27,6 +28,7 @@ export const DELETE_USER = 'DELETE_USER'
 export const USER_LOGIN = 'USER_LOGIN'
 
 const user = (state = initialUsers, action) => {
+
   console.log(action);
   switch (action.type) {
     case ADD_USER:
@@ -36,9 +38,9 @@ const user = (state = initialUsers, action) => {
     case DELETE_USER:
       return;
     case USER_LOGIN:
-      console.log('logged')
-      return CheckEmailPassword(action.data.email, action.data.password)
-
+      const result = CheckEmailPassword(action.data.email, action.data.password)
+      alert(result)
+      return result;
 
     default: return state;
   }
