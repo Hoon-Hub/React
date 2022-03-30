@@ -1,33 +1,35 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AddPosts } from "./PostSlice";
 
 const AddPostForm = () => {
   const dispatch = useDispatch();
-
+  const users = useSelector((state) => state.users);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [userName, setUserName] = useState("");
+  const [userId, setUserId] = useState("");
 
-  const onChangeTitle = (e) => {
-    setTitle(e.target.value);
-  };
-
-  const onChangeContent = (e) => {
-    setContent(e.target.value);
-  };
+  const onChangeTitle = (e) => setTitle(e.target.value);
+  const onChangeContent = (e) => setContent(e.target.value);
+  const onChangeUserName = (e) => setUserId(e.target.value);
 
   const onSavePostClicked = (e) => {
     e.preventDefault();
-    if (title && content && userName) {
-      dispatch(AddPosts(title, content));
+    if (title && content && userId) {
+      dispatch(AddPosts(title, content, userId));
+      console.log(title, content, userId);
     }
 
     setTitle("");
     setContent("");
+    setUserId("");
   };
 
-  const onChangeUserName = (e) => {};
+  const UserList = users.map((user) => (
+    <option key={user.id} value={user.id}>
+      {user.name}
+    </option>
+  ));
 
   return (
     <section>
@@ -46,10 +48,11 @@ const AddPostForm = () => {
         <select
           name="userName"
           id="userName"
-          value={userName}
+          value={userId}
           onChange={onChangeUserName}
         >
           <option value="">선택해주세요</option>
+          {UserList}
         </select>
 
         <br />

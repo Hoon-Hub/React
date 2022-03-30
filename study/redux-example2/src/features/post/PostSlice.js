@@ -5,13 +5,11 @@ const initialState = [
     id: 1,
     title: "title1",
     content: "content1",
-    userName: "",
   },
   {
     id: 2,
     title: "title2",
     content: "content2",
-    userName: "",
   },
 ];
 
@@ -22,14 +20,15 @@ const postSlice = createSlice({
     AddPosts: {
       reducer(state, action) {
         state.push(action.payload);
+        console.log(action.payload);
       },
-      prepare(title, content, userName) {
+      prepare(title, content, userId) {
         return {
           payload: {
             id: nanoid(),
             title,
             content,
-            userName,
+            userId,
           },
         };
       },

@@ -9,7 +9,7 @@ const PostList = () => {
     <article key={post.id}>
       <h3>{post.title}</h3>
       <p>{post.content.substring(0, 100)}</p>
-      <PostAuthor userName={post.userName} />
+      <PostAuthor userId={post.userId} />
     </article>
   ));
 

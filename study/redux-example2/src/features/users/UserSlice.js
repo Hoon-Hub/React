@@ -17,7 +17,7 @@ const userSlice = createSlice({
       prepare(name) {
         return {
           payload: {
-            id: Math.count(initialState),
+            id: nanoid(),
             name,
           },
         };
