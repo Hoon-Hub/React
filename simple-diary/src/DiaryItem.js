@@ -1,15 +1,19 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 const DirayItem = ({
   author,
+  onRemove,
   content,
   created_date,
   emotion,
   id,
-  onRemove,
   onEdit,
 }) => {
+  useEffect(() => {
+    console.log(`${id + 1} 번째 아이템 렌더`);
+  });
+
   const [isEdit, setIsEdit] = useState(false);
   const toggleIsEdit = () => setIsEdit(!isEdit);
 
@@ -131,4 +135,4 @@ const StyledItem = styled.div`
   }
 `;
 
-export default DirayItem;
+export default React.memo(DirayItem);

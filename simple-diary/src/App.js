@@ -46,18 +46,18 @@ function App() {
     setData((data) => [newItem, ...data]);
   }, []);
 
-  const onRemove = (targetId) => {
-    const newDiaryList = data.filter((it) => it.id !== targetId);
-    setData(newDiaryList);
-  };
+  const onRemove = useCallback((targetId) => {
+    // 함수형으로 변경하여 전달 : data return
+    setData((data) => data.filter((it) => it.id !== targetId));
+  }, []);
 
-  const onEdit = (targetId, newContent) => {
-    setData(
+  const onEdit = useCallback((targetId, newContent) => {
+    setData((data) => {
       data.map((it) =>
         it.id === targetId ? { ...it, content: newContent } : it
-      )
-    );
-  };
+      );
+    });
+  }, []);
 
   // useMemo : 연산 최적화 : 배열의 길이에 대해 useMemo를 사용하여 최적화
   const getDiaryAnalysis = useMemo(() => {
