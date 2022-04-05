@@ -232,6 +232,12 @@ header button {
   background-color: #ececec;
 }
 
+.DiaryEditor .control_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 /* EmotionItem */
 .EmotionItem {
   cursor: pointer;
