@@ -124,7 +124,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/diary/:id" element={<Diary />} />
-              <Route path="/edit" element={<Edit />} />
+              <Route path="/edit/:id" element={<Edit />} />
               <Route path="/new" element={<New />} />
             </Routes>
           </div>
