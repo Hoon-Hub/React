@@ -1,7 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
 
 const DiaryEditor = ({ onCreate }) => {
+  useEffect(() => {
+    console.log("DiraryEditor render");
+  });
+
   const authorInput = useRef();
   const contentInput = useRef();
   const [state, setState] = useState({
@@ -81,7 +85,7 @@ const DiaryEditor = ({ onCreate }) => {
   );
 };
 
-export default DiaryEditor;
+export default React.memo(DiaryEditor);
 
 const StyledDiv = styled.div`
   border: 1px solid gray;

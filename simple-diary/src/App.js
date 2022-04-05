@@ -1,8 +1,8 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import "./App.css";
 import DiaryEditor from "./DiaryEditor";
 import DiaryList from "./DiaryList";
-import OptimizeTest from "./OptimizeTest";
+// import OptimizeTest from "./OptimizeTest";
 
 function App() {
   const [data, setData] = useState([]);
@@ -31,9 +31,8 @@ function App() {
     getData();
   }, []);
 
-  const onCreate = (author, content, emotion) => {
+  const onCreate = useCallback((author, content, emotion) => {
     const created_date = new Date().getTime();
-
     const newItem = {
       author,
       content,
@@ -42,8 +41,10 @@ function App() {
       id: dataId.current,
     };
     dataId.current++;
-    setData([newItem, ...data]);
-  };
+
+    // useCallback : 함수형 데이터를 전달 = 함수형 업데이트
+    setData((data) => [newItem, ...data]);
+  }, []);
 
   const onRemove = (targetId) => {
     const newDiaryList = data.filter((it) => it.id !== targetId);
@@ -65,13 +66,14 @@ function App() {
     const goodRatio = Math.floor((goodCount / data.length) * 100);
 
     return { goodCount, badCount, goodRatio };
+    // 값을 반환함
   }, [data.length]);
 
   const { goodCount, badCount, goodRatio } = getDiaryAnalysis;
 
   return (
     <div className="App">
-      <OptimizeTest></OptimizeTest>
+      {/* <OptimizeTest></OptimizeTest> */}
       <DiaryEditor onCreate={onCreate} />
       <div>전체 일기 : {data.length}</div>
       <div>기분 좋은 일기 개수 : {goodCount}</div>
