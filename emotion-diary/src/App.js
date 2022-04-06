@@ -4,7 +4,6 @@ import Diary from "./pages/Diary";
 import Edit from "./pages/Edit";
 import Home from "./pages/Home";
 import New from "./pages/New";
-import Error from "./pages/Error";
 import React, { useReducer, useRef } from "react";
 
 const reducer = (state, action) => {
