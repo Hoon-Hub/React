@@ -10,7 +10,7 @@ const reducer = (state, action) => {
   let newState = [];
   switch (action.type) {
     case "INIT": {
-      return action.state;
+      return action.data;
     }
     case "CREATE": {
       newState = [action.data, ...state];
@@ -27,7 +27,7 @@ const reducer = (state, action) => {
       break;
     }
     default:
-      return newState;
+      return state;
   }
   localStorage.setItem("diary", JSON.stringify(newState));
   return newState;
@@ -39,14 +39,17 @@ export const DiaryDispatchContext = React.createContext();
 function App() {
   const dataId = useRef(0);
   const [data, dispatch] = useReducer(reducer, []);
+
   useEffect(() => {
     const localData = localStorage.getItem("diary");
+    console.log(`--localData : ${localData} --`);
     if (localData) {
       const diaryList = JSON.parse(localData).sort(
         (a, b) => parseInt(b.id) - parseInt(a.id)
       );
       dataId.current = parseInt(diaryList[0].id) + 1;
-
+      console.log(JSON.stringify(diaryList));
+      console.log(dataId);
       dispatch({ type: "INIT", data: diaryList });
     }
   }, []);
