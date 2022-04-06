@@ -10,7 +10,10 @@ const Edit = () => {
   const { id } = useParams();
 
   const diaryList = useContext(DiaryStateContext);
-
+  useEffect(() => {
+    const titleElement = document.getElementsByTagName("title")[0];
+    titleElement.innerHTML = `감정일기장 수정-${id}번째`;
+  }, []);
   useEffect(() => {
     if (diaryList.length >= 1) {
       const targetDiary = diaryList.find(
